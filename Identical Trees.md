@@ -18,12 +18,93 @@ false
 
 ### Time and Auxiliary Space Complexity
 
-- **Expected Time Complexity:** O(n)
-- **Expected Auxiliary Space Complexity:** O(h)
+- **Expected Time Complexity:** Not found
+- **Expected Auxiliary Space Complexity:** Not found
 
-### Accepted Solutions (1)
+### Accepted Solutions (3)
 
 #### Solution 1 (C++)
+
+- **Submitted:** 2026-10-18 10:49:08
+- **Status:** Correct
+- **Marks:** 0
+
+```cpp
+/*
+class Node {
+public:
+    int data;
+    Node* left;
+    Node* right;
+
+    Node(int x) {
+        data = x;
+        left = nullptr;
+        right = nullptr;
+    }
+};
+*/
+class Solution {
+  public:
+  
+    bool isIdentical(Node* r1, Node* r2) {
+        if(r1==NULL&&r2==NULL) return true;
+        if (r1!=NULL&&r2==NULL) return false;
+        if(r1==NULL && r2!=NULL) return false;
+        
+         if(r1->data!=r2->data) return false;
+       
+     bool leftans = isIdentical(r1->left,r2->left);
+         if(leftans==false) return false;
+         
+          bool rightansw = isIdentical(r1->right,r2->right);
+           if(rightansw==false) return false;
+         
+         return true;
+         
+         
+     
+    }
+};
+```
+
+#### Solution 2 (C++)
+
+- **Submitted:** 2026-10-18 10:17:54
+- **Status:** Correct
+- **Marks:** 0
+
+```cpp
+/*
+class Node {
+public:
+    int data;
+    Node* left;
+    Node* right;
+
+    Node(int x) {
+        data = x;
+        left = nullptr;
+        right = nullptr;
+    }
+};
+*/
+class Solution {
+  public:
+    bool isIdentical(Node* r1, Node* r2) {
+        if(r1==NULL||r2==NULL){
+            return r1==r2;
+        }
+      bool  isleftsame= isIdentical(r1->left,r2->left);
+      bool  isrightsame= isIdentical(r1->right,r2->right);
+      return isleftsame && isrightsame && r1->data==r2->data;
+        
+        
+    }
+};
+```
+
+#### Solution 3 (C++)
 
 - **Submitted:** 2026-09-29 19:03:21
 - **Status:** Correct
@@ -59,4 +140,4 @@ class Solution {
 };
 ```
 
-*Generated on: 29/9/2026, 7:03:32 pm*
+*Generated on: 18/10/2026, 10:49:29 am*
